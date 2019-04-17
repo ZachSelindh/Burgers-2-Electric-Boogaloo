@@ -19,9 +19,15 @@ app.set("view engine", "handlebars");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var routes = require("./controllers/burgers_controller");
+const burgerRoute = require("./routes/burgerRoute");
+const eaterRoute = require("./routes/eaterRoute");
 
-app.use(routes);
+/* app.use(burgerRoute);
+app.use(eaterRoute); */
+
+const db = require("./config/db");
+
+sequelize.sync({ force: true });
 
 app.listen(PORT, function() {
   console.log("Server listening at port " + PORT);

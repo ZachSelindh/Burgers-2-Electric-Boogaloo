@@ -1,5 +1,5 @@
 module.exports = (sequelize, DATATYPES) => {
-  const Burger = sequelize.define("burger", {
+  const Eater = sequelize.define("eater", {
     id: {
       type: SEQUELIZE.UUID,
       primaryKey: true,
@@ -12,14 +12,9 @@ module.exports = (sequelize, DATATYPES) => {
         isAlphanumeric: true
       }
     },
-    devoured: {
-      type: SEQUELIZE.boolean,
-      defaultValue: false,
-      require: true
-    },
-    eater_id: {
+    burgers_eaten: {
       type: SEQUELIZE.UUID
     }
   });
-  return Burger;
+  return Eater;
 };
